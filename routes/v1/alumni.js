@@ -22,7 +22,7 @@ const getAlumni = async (page, cari, jurusan, prodi, angkatan, lulus) => {
             const lulusStr = $($elP[2]).text().replace('Tahun Lulus : ', '')
             const lulus = parseInt(lulusStr)
             const urlDetail = $element.find('.address div a').toString().match(/href="(.*)" class/).pop()
-            const urlPath = '/v1/alumni' + urlDetail.replace(`${URL_ALUMNI}/detail`, '')
+            const urlPath = '/v1/alumni/' + urlDetail.replace(`${URL_ALUMNI}/detail`, '').split('/')[1]
             alumni.push({
                 image,
                 nama,
